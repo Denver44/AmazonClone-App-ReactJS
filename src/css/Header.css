@@ -1,0 +1,94 @@
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 60px;
+  background-color: #131921;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* As we want the nav bar to be to if we scroll down.  so the positon and top must be filled.*/
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__menu {
+  color: white !important;
+  margin-left: 10px;
+}
+
+.header__logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 22px;
+}
+
+.header__search {
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+.header__searchIn {
+  border: none;
+  height: 35px;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+.header__searchIcon {
+  height: 35px !important;
+  padding: 5px;
+  color: black !important;
+  background-color: #cd9042;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+
+.header__nav {
+  flex: 1.1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header_optionLineOne {
+  font-size: 0.8rem;
+}
+
+.header_optionLineTwo {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+.header__optionsBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.header__basketCount {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (min-width: 576px) and (max-width: 976px) {
+  .header_optionLineOne {
+    margin-top: 8px;
+    font-size: 0.5rem;
+  }
+  .header_optionLineTwo {
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+}

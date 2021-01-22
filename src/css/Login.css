@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.Login {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  justify-content: center;
+}
+
+.login__logo {
+  margin-top: -60px;
+  margin-bottom: 20px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.login__container {
+  width: 350px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.login__container > h1 {
+  margin-bottom: 20px;
+  font-weight: 800;
+  font-family: "Poppins", sans-serif;
+}
+
+.login__container > form > h5 {
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 10px;
+}
+
+.login__container > form > input {
+  margin-bottom: 18px;
+  width: 98%;
+  color: #111;
+  background-color: #fff;
+  height: 35px;
+  padding: 5px 10px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #a6a6a6;
+  border-top-color: #949494;
+  border-radius: 3px;
+  font-size: large;
+}
+
+.login__container > form > input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  outline: 0;
+}
+
+.login__container > form > button {
+  background: #f0c14b;
+  border-radius: 2px;
+  margin-top: 10px;
+  border: 1px solid;
+  color: #111;
+  width: 100%;
+  height: 30px;
+  border-color: #a88734 #9c7e31 #846a29;
+  outline: none;
+}
+
+.login__container > form > button:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  outline: none;
+}
+
+.login__registerButton {
+  border-radius: 2px;
+  margin-top: 10px;
+  color: #111;
+  width: 100%;
+  height: 30px;
+  border: 1px solid darkgray;
+}
+
+.login__container > button:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  outline: none;
+}
+
+.small__info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.small__info > input {
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.small__info > p {
+  font-size: 14px;
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 5px;
+}
