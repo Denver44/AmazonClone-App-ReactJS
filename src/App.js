@@ -11,9 +11,7 @@ import Payment from "./components/Payment";
 import { loadStripe } from "@stripe/stripe-js"; // This is for the stripe
 import { Elements } from "@stripe/react-stripe-js"; // This is for the stripe
 
-const promise = loadStripe(
-  "pk_test_51HqDDgCPODJhZjnMYlwTCMvX5DjwYXCovTfu2wWmeoqYztarJhc9IdJO3W6NJftmlzIN61ihDS0pAxBQKuGSB57R00xcphT3xT"
-);
+const promise = loadStripe(toString(process.env.STRIPE_PUBLIC_KEY));
 
 // it keeps track who is login or not.
 // means we are already login or logged out from last session so as the page render check that we are login or not.
