@@ -45,10 +45,11 @@ function Payment() {
     // So everytime basket chnages we should create a new secret key.
 
     const getClientSecret = async () => {
+      const data = {
+        total: getBasketTotal(basket) * 100,
+      };
       try {
-        const response = await axios.post(
-          `/payments/create?total=${getBasketTotal(basket) * 100}`
-        );
+        const response = await axios.post(`/payment/create`, data);
         setClientSecret(response.data.clientSecret);
       } catch (error) {
         console.log(error);
