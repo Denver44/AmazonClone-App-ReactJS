@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import CheckoutProdut from "../CheckoutProduct/CheckoutProduct";
-import { useStateValue } from "../../StateProvider";
-import "../Payment/Payment.css";
-import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "../../Reducer";
-import axios from "../axios/axios.js";
-import { useHistory } from "react-router-dom";
-import { db } from "../../firebase";
-import HomeIcon from "@material-ui/icons/Home";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from 'react';
+import CheckoutProdut from '../CheckoutProduct/CheckoutProduct';
+import { useStateValue } from '../../StateProvider';
+import '../Payment/Payment.css';
+import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from '../../Reducer';
+import axios from '../../api/axios.js';
+import { useHistory } from 'react-router-dom';
+import { db } from '../../firebase';
+import HomeIcon from '@material-ui/icons/Home';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 const cardStyle = {
   style: {
     base: {
-      color: "#32325d",
-      fontFamily: "Roboto, sans-serif",
-      fontSmoothing: "antialiased",
-      fontSize: "16px",
-      "::placeholder": {
-        color: "#32325d",
+      color: '#32325d',
+      fontFamily: 'Roboto, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#32325d',
       },
     },
     invalid: {
-      color: "#fa755a",
-      iconColor: "#fa755a",
+      color: '#fa755a',
+      iconColor: '#fa755a',
     },
   },
 };
@@ -32,7 +32,7 @@ function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
 
   const [succeeded, setSucceeded] = useState(false); // this is for any error occur
-  const [processing, setProcessing] = useState(""); // this is for any error occur
+  const [processing, setProcessing] = useState(''); // this is for any error occur
   const [error, setError] = useState(null); // this is for any error occur
   const [disabled, setDisabled] = useState(true); // this is to disbale the button
   const [clientSecret, setClientSecret] = useState(true); // to get secret key as per the total.
@@ -70,9 +70,9 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         console.log(paymentIntent);
-        db.collection("users")
+        db.collection('users')
           .doc(user?.uid)
-          .collection("orders")
+          .collection('orders')
           .doc(paymentIntent.id)
           .set({
             basket: basket,
@@ -85,10 +85,10 @@ function Payment() {
         setProcessing(false);
 
         dispatch({
-          type: "EMPTY_BASKET",
+          type: 'EMPTY_BASKET',
         });
 
-        history.replace("/orders");
+        history.replace('/orders');
       })
       .catch(() => {
         setError(`Payment failed`);
@@ -100,7 +100,7 @@ function Payment() {
     // Listen for changes in the CardElement
     // and display any errors as the customer types their card details
     setDisabled(e.empty);
-    setError(e.error ? e.error.message : "");
+    setError(e.error ? e.error.message : '');
   };
   return (
     <div className="payment">
@@ -110,7 +110,7 @@ function Payment() {
             fontSize="large"
             className="home__icon"
             onClick={(e) => {
-              history.replace("/");
+              history.replace('/');
             }}
           />
           <h1> Checkout ({basket.length} items)</h1>
@@ -178,16 +178,16 @@ function Payment() {
                   renderText={(value) => <h3>Order Total : {value}</h3>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
-                  displayType={"text"}
+                  displayType={'text'}
                   thousandSeparator={true}
-                  prefix={"₹"}
+                  prefix={'₹'}
                 />
                 <button disabled={processing || disabled || succeeded}>
                   <span id="button-text">
                     {processing ? (
                       <div className="spinner" id="spinner"></div>
                     ) : (
-                      "Buy Now"
+                      'Buy Now'
                     )}
                   </span>
                 </button>
